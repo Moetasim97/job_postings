@@ -1,0 +1,17 @@
+.post_container{
+    background-color: white;
+}
+.custom_padding{
+    padding-top: 35px;
+}
+.job_flags{
+    width: 80px;
+    height: 80px;
+}
+.featured{
+    border-left: 4px solid green;
+}
+.not_featured{
+    border-left: 2px solid black;
+}
+
