@@ -1,4 +1,4 @@
-import React,{ useState } from 'react'
+import React,{ useEffect, useState } from 'react'
 
 import HeaderImg from "./header.png"
 import './App.css';
@@ -17,8 +17,20 @@ function App({model}) {
   
 
 
-const [original_posts,setPosts]=React.useState(model)
+var [original_posts,setPosts]=React.useState(model)
 const[filtered_state,setFilterArea]=React.useState(false)
+var [filtered_tags,setFilteredTags]=useState([])
+
+
+
+
+const incrementTags=(tag)=>{
+  // this logic is for preventing the tags from being added more than once to the filter tags array
+  if(filtered_tags.includes(tag)){
+    filtered_tags.pop(tag)
+  }
+  setFilteredTags((prevState)=>prevState=[...prevState,tag])
+}
 
 const setFilterState=()=>{
   setFilterArea((prevState)=> prevState=true)
@@ -33,11 +45,41 @@ const filter_posts=()=>{
     return newState
   })
 }
+var model_copy=[...original_posts]
 
-
-
-
+useEffect(
+  ()=>{
+    var fresh_copy=[]
+    
+   for(var i=0; i<model_copy.length;i++)
+   {
   
+    function isArraySubset(subsetArray, mainArray) {
+      return subsetArray.every((value) => mainArray.includes(value));
+    }
+    
+    const isSubset = isArraySubset(filtered_tags, model_copy[i].skill);
+    
+    console.log(model_copy[i])
+    if(isSubset){
+      fresh_copy.push(model_copy[i])
+    }
+
+   }
+   
+  
+   setPosts(fresh_copy)
+  }
+ 
+  ,[filtered_tags]
+)
+useEffect(
+  ()=>{
+    if(!filtered_state){
+      setPosts(model)
+    }
+  },[filtered_state]
+)
 
   return (
    
@@ -65,7 +107,7 @@ const filter_posts=()=>{
       <div className='mt-5'>
         {original_posts.map((post,key)=>{
           return(
-            <Post single_post={post} whole_posts={original_posts} filter_method={setFilterState} ultimate_filter={filter_posts}  />
+            <Post single_post={post}  key={key} filter_method={setFilterState}  filter_tags={incrementTags} />
           )
         })}
         
