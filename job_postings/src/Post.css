@@ -7,6 +7,7 @@
 .job_flags{
     width: 80px;
     height: 80px;
+    margin-top: 30px;
 }
 .featured{
     border-left: 4px solid green;
@@ -15,3 +16,33 @@
     border-left: 2px solid black;
 }
 
+.company_name{
+    color:#5dadae;
+}
+
+.new{
+    border-radius: 15px;
+    font-size: 12px;
+    font-weight: 500;
+    padding: 4px;
+    background-color: #5dadae;
+    color: white;
+    
+}
+
+.featured{
+    border-radius: 15px;
+    font-size: 12px;
+    font-weight: 500;
+    padding: 4px;
+    background-color: black;
+    color: white;
+    
+}
+
+.job_title{
+    font-weight: 700;
+    width: fit-content;
+    margin-left: 17px;
+
+}

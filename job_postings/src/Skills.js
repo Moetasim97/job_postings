@@ -28,7 +28,7 @@ export default function Skill({skills,filter_setter,filter_tags})
     
     return (
         <>
-        <div className="tag"
+        <div className="tag mx-2 mt-3" 
         onClick={changeState}>
             {skills}</div>
         </>

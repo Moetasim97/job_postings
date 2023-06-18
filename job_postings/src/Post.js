@@ -13,26 +13,31 @@ return (
     <>
 
     <div className="post_container container mb-4 ">
-            <div className={"row border "} >
-            <div className="col-md-6 border ">
-                <div className="row">
+            <div className={"row "} >
+            <div className="col-md-6  ">
+                <div className="d-flex ">
                     <div className="d-flex flex-column">
                         <img src={single_post.Img} className="job_flags" alt="Job Asset"/>
                     </div>
-                    <div className="d-flex flex-column">
-                        <div className="d-flex ">
-                        <div>{single_post.company}</div>
-                        <div>{single_post.post}</div>
-                        <div>{single_post.featured}</div>
-                       
+                    <div className="d-flex flex-column   ">
+                        <div className="d-flex p-3 ">
+                        <div className="company_name"><strong>{single_post.company}</strong>   </div>
+                        <div className={single_post.post? "new mx-1" : ""}>{single_post.post}</div>
+                        <div className={single_post.featured? "featured mx-1":''}>{single_post.featured}</div>
+                        </div>
 
+                        <div className="job_title">{single_post.jobtitle}</div>
+                        <div className="d-flex p-3 text-secondary h6">
+                            <div className="mx-1">{single_post.contract} .</div>
+                            <div className="mx-1">{single_post.time}  .</div>
+                            <div className="mx-1">{single_post.location}</div>
                         </div>
                     </div>
 
                 </div>
               
             </div>
-            <div className="col-md-6 border">
+            <div className="col-md-6 ">
           <div className='d-flex justify-content-end px-2 align-content-center custom_padding'>
             
             

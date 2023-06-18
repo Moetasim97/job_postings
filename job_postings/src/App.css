@@ -17,10 +17,11 @@
   border-radius: 10px;
   box-shadow: rgba(149, 157, 165, 0.2) 0px 8px 24px;
 }
-
+.my_row{
+  height: fit-content;
+}
 .tag{
   background-color: #f0fafb;
-  margin-right: 10px;
   color:rgba(91,165,164,255);
   font-weight: 500;
   padding-left: 10px;
@@ -30,6 +31,7 @@
   font-weight: 700;
   border-radius: 5px;
   padding: 5px;
+  
   cursor: pointer;
   
 
@@ -46,4 +48,16 @@
   padding-bottom: 5px;
   font-weight: 700;
   cursor: pointer;
+}
+
+.x_style{
+  background-color: #5dadae;
+  color: white;
+  font-size: 18px;
+  border-radius:5px;
+  padding-top: 1px;
+  padding-left: 10px;
+  padding-right: 10px;
+  cursor: pointer;
+
 }

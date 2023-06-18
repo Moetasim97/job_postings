@@ -43,24 +43,23 @@ const hideFilter=()=>{
 }
 const reduce_tags=(job)=>{
   const updatedArray = filtered_tags.filter((element) => element !== job);
-  setFilteredTags(updatedArray);
+  filtered_tags=updatedArray
+  setFilteredTags(filtered_tags);
+  
 }
 
-const filter_posts=()=>{
-  setPosts((newState)=>{
-    return newState
-  })
-}
 
-var model_copy=[...original_posts]
+
+var model_copy=model
 
 useEffect(
   ()=>{
     var fresh_copy=[]
     console.log("i'm supposed to run now")
-   for(var i=0; i<model_copy.length;i++)
+    console.log(fresh_copy)
+   for(let i=0; i<model_copy.length;i++)
    {
-  
+    console.log("i'm t oo")
     function isArraySubset(subsetArray, mainArray) {
       return subsetArray.every((value) => mainArray.includes(value));
     }
@@ -98,7 +97,7 @@ useEffect(
       <div className='container'>
         {filtered_state
          ? 
-  <div className="filter_bar   border p-4 d-flex justify-content-between" >
+  <div className="filter_bar p-4 d-flex justify-content-between" >
          <div className="tags_area d-flex">
           <FilterTags tags={filtered_tags} reduce_tags={reduce_tags}/>
         </div>
