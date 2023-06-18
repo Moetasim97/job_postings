@@ -3,6 +3,7 @@ import React,{ useEffect, useState } from 'react'
 import HeaderImg from "./header.png"
 import './App.css';
 import Post from "./Post.js"
+import FilterTags from './Filter';
 
 
 
@@ -23,7 +24,7 @@ var [filtered_tags,setFilteredTags]=useState([])
 
 
 
-
+// Here I'm defining a function to increment tags to the filter area, this function will be "drilled" to the grandchild
 const incrementTags=(tag)=>{
   // this logic is for preventing the tags from being added more than once to the filter tags array
   if(filtered_tags.includes(tag)){
@@ -40,18 +41,23 @@ const hideFilter=()=>{
   setFilterArea((prevState)=> prevState=false)
   setFilteredTags((prevState)=>prevState=[])
 }
+const reduce_tags=(job)=>{
+  const updatedArray = filtered_tags.filter((element) => element !== job);
+  setFilteredTags(updatedArray);
+}
 
 const filter_posts=()=>{
   setPosts((newState)=>{
     return newState
   })
 }
+
 var model_copy=[...original_posts]
 
 useEffect(
   ()=>{
     var fresh_copy=[]
-    
+    console.log("i'm supposed to run now")
    for(var i=0; i<model_copy.length;i++)
    {
   
@@ -67,8 +73,6 @@ useEffect(
     }
 
    }
-   
-  
    setPosts(fresh_copy)
   }
  
@@ -96,6 +100,7 @@ useEffect(
          ? 
   <div className="filter_bar   border p-4 d-flex justify-content-between" >
          <div className="tags_area d-flex">
+          <FilterTags tags={filtered_tags} reduce_tags={reduce_tags}/>
         </div>
         <div className="clear_div " onClick={hideFilter}>Clear</div>
         </div>
