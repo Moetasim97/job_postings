@@ -38,6 +38,7 @@ const setFilterState=()=>{
 
 const hideFilter=()=>{
   setFilterArea((prevState)=> prevState=false)
+  setFilteredTags((prevState)=>prevState=[])
 }
 
 const filter_posts=()=>{
@@ -60,7 +61,7 @@ useEffect(
     
     const isSubset = isArraySubset(filtered_tags, model_copy[i].skill);
     
-    console.log(model_copy[i])
+
     if(isSubset){
       fresh_copy.push(model_copy[i])
     }

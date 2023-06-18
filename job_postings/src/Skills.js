@@ -4,14 +4,14 @@ export default function Skill({skills,filter_setter,filter_tags})
 {
 
     const [clicked,setClickState]=React.useState(false)
-    const [skillTag,return_skill]=React.useState(skills)
+
 
     
     //   end of the body of this function
 
     const appendTag=()=>{
         
-        filter_tags(skillTag)
+        filter_tags(skills)
     }
 
     const changeState=()=>{
@@ -30,7 +30,7 @@ export default function Skill({skills,filter_setter,filter_tags})
         <>
         <div className="tag"
         onClick={changeState}>
-            {skillTag}</div>
+            {skills}</div>
         </>
     )
 }
