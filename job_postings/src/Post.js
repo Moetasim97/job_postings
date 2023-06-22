@@ -12,7 +12,7 @@ function Post ({single_post,filter_method,filter_tags}){
 return (
     <>
 
-    <div className="post_container container mb-4 ">
+    <div className={ single_post.featured?"post_container container mb-4 featured_post":"post_container container mb-4 post"}>
             <div className={"row "} >
             <div className="col-md-6  ">
                 <div className="d-flex ">

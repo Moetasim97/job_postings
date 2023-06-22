@@ -8,7 +8,7 @@ import FilterTags from './Filter';
 
 
 
-// This is the model object that came from outside our app.
+
 
 
 
@@ -55,11 +55,10 @@ var model_copy=model
 useEffect(
   ()=>{
     var fresh_copy=[]
-    console.log("i'm supposed to run now")
-    console.log(fresh_copy)
+    
    for(let i=0; i<model_copy.length;i++)
    {
-    console.log("i'm t oo")
+    
     function isArraySubset(subsetArray, mainArray) {
       return subsetArray.every((value) => mainArray.includes(value));
     }

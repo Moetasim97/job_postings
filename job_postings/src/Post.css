@@ -1,5 +1,12 @@
 .post_container{
     background-color: white;
+   
+}
+
+.featured_post{
+    border-left: 5px solid #5dadae;
+    border-radius: 5px;
+
 }
 .custom_padding{
     padding-top: 35px;
